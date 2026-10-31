@@ -77,17 +77,14 @@ print it and stick it on the fridge. It renders with the Wi-Fi off.
 
 ## How it works
 
-```text
-git log --diff-filter=D        →  which files died, and who killed them
-git log --follow               →  birth commit, lifespan, contributors
-git show <death>^:<path>       →  the content it was carrying at death
-            │
-            ▼
-   prompt built from all of it ──►  gemma3:4b on 127.0.0.1:11434
-            │
-            ▼
-   {epitaph, story, cause_of_death, beloved[]}  ──►  escaped into
-                                                      one HTML ofrenda
+```mermaid
+flowchart TD
+    A["git log --diff-filter=D<br/>which files died, and who killed them"] --> C["life record per file"]
+    B["git log --follow + git show death^:path<br/>birth, lifespan, contributors, final content"] --> C
+    C --> D["prompt built from the evidence"]
+    D --> E["gemma3:4b on 127.0.0.1:11434<br/>(local, via Ollama)"]
+    E --> F["epitaph · story · cause of death · beloved[]"]
+    F --> G["HTML-escaped into one self-contained<br/>candle-lit ofrenda page"]
 ```
 
 - **The model is load-bearing.** There is no template fallback: if Ollama
