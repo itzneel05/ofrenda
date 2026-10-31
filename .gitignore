@@ -12,3 +12,6 @@ venv/
 # Generated ofrenda pages
 ofrenda.html
 examples/graveyard-repo/
+
+# Submission post (goes on dev.to, not in the repo)
+SUBMISSION.md
